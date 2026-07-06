@@ -24,7 +24,7 @@
 <body>
 <div class="wrap">
   <h1>Privacy Policy</h1>
-  <p class="updated">Savoria — Last updated: July 4, 2026</p>
+  <p class="updated">Savoria — Last updated: July 6, 2026</p>
   <p class="lang">🇫🇷 <a href="privacy-fr.html">Version française</a></p>
 
   <p>This Privacy Policy explains what data <strong>Savoria</strong> ("the app", "we") collects, why, on what legal basis, how long it is kept, and how you can exercise your rights. Savoria is an AI-powered recipe app for Android, published by an independent developer based in France (the "data controller" within the meaning of the GDPR — contact below).</p>
@@ -54,6 +54,12 @@
       <td>Messages, photos and documents you submit to AI features</td>
       <td>When you use the AI chef, recipe import or cooking assistant</td>
       <td>Sent to the Google Gemini API to generate the response, through our server function which relays them without storing them. Chat history is stored <strong>locally on your device only</strong> — it is never uploaded to our servers. Not used to build a profile of you.</td>
+      <td>Performance of the contract</td>
+    </tr>
+    <tr>
+      <td>Public content of a social media post (caption or description, and where applicable the video, of an Instagram, TikTok or YouTube link you submit)</td>
+      <td>When you import a recipe from a social media link</td>
+      <td>The <strong>publicly accessible</strong> surface of the post is fetched — without signing in to any social media account — and sent to the Gemini API to extract the recipe. Any video transits temporarily through our server and is <strong>deleted immediately after analysis</strong>: no platform content is retained; only the resulting structured recipe is saved to your account.</td>
       <td>Performance of the contract</td>
     </tr>
     <tr>
@@ -88,6 +94,7 @@
     <li>We do not show ads and do not use advertising trackers.</li>
     <li>We do not use your recipes, messages or images for marketing or profiling.</li>
     <li>The service uses the paid tier of the Gemini API: under its terms, your AI prompts are not used by Google to train its models. Google may however retain them temporarily for abuse detection and legal compliance purposes.</li>
+    <li>No connection to your social media accounts: importing from Instagram, TikTok or YouTube only accesses publicly available content — the app never asks for social media credentials and stores no social session.</li>
   </ul>
   <p>Please avoid including sensitive personal information (e.g. health details) in messages sent to the AI — it is not needed for cooking advice.</p>
 
@@ -113,6 +120,7 @@
     <li><strong>Account and content data</strong>: kept as long as your account exists; deleted immediately when you delete your account.</li>
     <li><strong>AI chat history</strong>: stored locally on your device only; removed when you delete it in the app or uninstall the app.</li>
     <li><strong>AI usage counters</strong>: kept while your account exists, deleted with the account.</li>
+    <li><strong>Videos relayed during a social media import</strong>: ephemeral transit only — deleted immediately after analysis, never retained.</li>
     <li><strong>Crash data</strong>: retained by Firebase Crashlytics for 90 days.</li>
     <li><strong>Analytics data</strong>: retained for a maximum of 14 months.</li>
   </ul>

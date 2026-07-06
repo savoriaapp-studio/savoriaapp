@@ -24,7 +24,7 @@
 <body>
 <div class="wrap">
   <h1>Politique de confidentialité</h1>
-  <p class="updated">Savoria — Dernière mise à jour : 4 juillet 2026</p>
+  <p class="updated">Savoria — Dernière mise à jour : 6 juillet 2026</p>
   <p class="lang">🇬🇧 <a href="privacy.html">English version</a></p>
 
   <p>Cette politique explique quelles données <strong>Savoria</strong> (« l'application », « nous ») collecte, pourquoi, sur quelle base légale, combien de temps elles sont conservées, et comment exercer vos droits. Savoria est une application Android de recettes assistée par IA, éditée par un développeur indépendant établi en France (le « responsable de traitement » au sens du RGPD — contact ci-dessous).</p>
@@ -54,6 +54,12 @@
       <td>Messages, photos et documents soumis aux fonctions IA</td>
       <td>Quand vous utilisez le Chef IA, l'import de recettes ou l'assistant cuisine</td>
       <td>Transmis à l'API Google Gemini pour générer la réponse, via notre fonction serveur qui les relaie sans les conserver. L'historique des conversations est stocké <strong>uniquement en local sur votre appareil</strong> — jamais sur nos serveurs. Aucun profilage.</td>
+      <td>Exécution du contrat</td>
+    </tr>
+    <tr>
+      <td>Contenu public d'une publication de réseau social (légende ou description, et le cas échéant la vidéo, d'un lien Instagram, TikTok ou YouTube que vous soumettez)</td>
+      <td>Quand vous importez une recette depuis un lien de réseau social</td>
+      <td>Récupération de la surface <strong>publiquement accessible</strong> de la publication — sans connexion à aucun compte de réseau social — puis transmission à l'API Gemini pour en extraire la recette. Une éventuelle vidéo transite temporairement par notre serveur et est <strong>supprimée immédiatement après l'analyse</strong> : aucun contenu de plateforme n'est conservé, seule la recette structurée qui en résulte est enregistrée dans votre compte.</td>
       <td>Exécution du contrat</td>
     </tr>
     <tr>
@@ -88,6 +94,7 @@
     <li>Pas de publicité, pas de traceurs publicitaires.</li>
     <li>Vos recettes, messages et images ne servent ni au marketing ni au profilage.</li>
     <li>Le service utilise l'offre payante de l'API Gemini : conformément à ses conditions, vos requêtes IA ne sont pas utilisées par Google pour entraîner ses modèles. Google peut toutefois les conserver temporairement à des fins de détection d'abus et de conformité légale.</li>
+    <li>Aucune connexion à vos comptes de réseaux sociaux : l'import depuis Instagram, TikTok ou YouTube n'accède qu'à des contenus publiquement accessibles — l'application ne vous demande jamais d'identifiants de réseau social et ne stocke aucune session.</li>
   </ul>
   <p>Évitez d'inclure des informations personnelles sensibles (par exemple des données de santé) dans les messages envoyés à l'IA — elles ne sont pas nécessaires pour des conseils de cuisine.</p>
 
@@ -113,6 +120,7 @@
     <li><strong>Données de compte et contenu</strong> : conservés tant que votre compte existe ; supprimés immédiatement à la suppression du compte.</li>
     <li><strong>Historique des conversations IA</strong> : uniquement local sur votre appareil ; supprimé quand vous l'effacez dans l'app ou désinstallez l'application.</li>
     <li><strong>Compteurs d'usage IA</strong> : conservés tant que le compte existe, supprimés avec lui.</li>
+    <li><strong>Vidéos relayées lors d'un import réseau social</strong> : transit éphémère uniquement — supprimées immédiatement après l'analyse, jamais conservées.</li>
     <li><strong>Données de plantage</strong> : conservées 90 jours par Firebase Crashlytics.</li>
     <li><strong>Statistiques d'utilisation</strong> : conservées 14 mois maximum.</li>
   </ul>
