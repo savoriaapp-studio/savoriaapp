@@ -14,8 +14,8 @@
     --shadow:0 1px 2px rgba(40,28,16,.05), 0 18px 40px -20px rgba(120,66,28,.28);
     --shadow-lift:0 1px 2px rgba(40,28,16,.06), 0 28px 56px -22px rgba(120,66,28,.40);
     --r:22px; --maxw:1080px;
-    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,ui-serif,serif;
-    --sans:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --display:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   }
   @media (prefers-color-scheme:dark){
     :root{
@@ -32,13 +32,13 @@
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
   .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-  h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1.1}
+  h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.022em;line-height:1.08}
 
   header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.4) blur(12px);
     background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid transparent;transition:border-color .3s}
   header.scrolled{border-color:var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:1.34rem;font-weight:600}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--display);font-size:1.3rem;font-weight:800;letter-spacing:-.02em}
   .brand svg{width:22px;height:22px;color:var(--accent)}
   .nav-right{display:flex;align-items:center;gap:18px;font-size:.9rem}
   .lang{color:var(--muted);font-weight:600;cursor:pointer;background:none;border:0;font-family:inherit;font-size:.9rem}
@@ -55,7 +55,7 @@
       radial-gradient(50% 50% at 92% 30%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 70%)}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
   .hero h1{font-size:clamp(2.4rem,5.2vw,3.7rem);margin-bottom:20px}
-  .hero p.lead{font-size:1.16rem;color:var(--muted);max-width:33ch;margin-bottom:30px}
+  .hero p.lead{font-size:1.16rem;color:var(--muted);max-width:35ch;margin-bottom:30px}
   .cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
   .btn-ghost{color:var(--accent-ink);font-weight:600;display:inline-flex;align-items:center;gap:6px}
   .btn-ghost:hover{gap:10px}
@@ -73,29 +73,41 @@
   .phone-stage{display:flex;justify-content:center;position:relative}
   .phone-stage::before{content:"";position:absolute;width:78%;height:78%;top:11%;
     background:radial-gradient(circle,color-mix(in srgb,var(--accent-soft) 42%,transparent),transparent 68%);filter:blur(18px);z-index:-1}
-  .phone{width:268px;background:var(--ink);border-radius:40px;padding:11px;box-shadow:var(--shadow-lift);
+  .phone{width:270px;background:var(--ink);border-radius:42px;padding:11px;box-shadow:var(--shadow-lift);
     border:1px solid color-mix(in srgb,var(--ink) 60%,#000)}
-  .screen{background:var(--surface);border-radius:30px;overflow:hidden;position:relative}
-  .sc-hero{height:150px;position:relative;background:linear-gradient(140deg,var(--accent) 0%,var(--accent-soft) 100%)}
-  .sc-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,12,6,.5),transparent 55%)}
-  .sc-hero .plate{position:absolute;right:-14px;bottom:-14px;width:112px;height:112px;border-radius:50%;
-    background:radial-gradient(circle at 38% 32%,#e9b877,#a75f2c 70%);box-shadow:inset 0 -10px 24px rgba(0,0,0,.25);opacity:.9}
+  .screen{background:var(--surface);border-radius:31px;overflow:hidden;position:relative}
+  .sc-hero{height:158px;position:relative;background:linear-gradient(140deg,var(--accent) 0%,var(--accent-soft) 100%)}
+  .sc-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,12,6,.55),transparent 58%)}
+  .sc-hero .plate{position:absolute;right:-14px;bottom:-14px;width:116px;height:116px;border-radius:50%;
+    background:radial-gradient(circle at 38% 32%,#e9b877,#a75f2c 70%);box-shadow:inset 0 -10px 24px rgba(0,0,0,.25);opacity:.92}
+  .sc-back{position:absolute;top:12px;left:12px;z-index:3;width:30px;height:30px;border-radius:50%;
+    background:rgba(20,12,6,.32);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;color:#fff}
+  .sc-back svg{width:15px;height:15px}
   .sc-title{position:absolute;left:16px;bottom:14px;right:16px;z-index:2;color:#fff}
-  .sc-title h4{font-family:var(--serif);font-size:1.08rem;font-weight:600;line-height:1.15}
-  .sc-body{padding:14px 16px 18px}
-  .chips{display:flex;gap:7px;margin-bottom:14px}
+  .sc-title h4{font-family:var(--display);font-size:1.16rem;font-weight:800;letter-spacing:-.01em;line-height:1.12;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+  .sc-body{padding:14px 16px 14px}
+  .chips{display:flex;gap:7px;margin-bottom:12px}
   .chip{font-size:.62rem;font-weight:600;color:var(--accent-ink);
     background:color-mix(in srgb,var(--accent-soft) 20%,var(--surface));border:1px solid var(--line);
     padding:4px 9px;border-radius:999px;display:inline-flex;align-items:center;gap:4px}
   .chip svg{width:9px;height:9px}
-  .row{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
-  .row .dot{width:20px;height:20px;border-radius:7px;background:color-mix(in srgb,var(--accent-soft) 26%,var(--surface));
-    display:flex;align-items:center;justify-content:center;color:var(--accent);flex:0 0 auto}
-  .row .dot svg{width:11px;height:11px}
-  .row .ln{flex:1;height:8px;border-radius:4px;background:color-mix(in srgb,var(--muted) 22%,transparent)}
-  .row .ln.s{max-width:52%}
-  .row .q{font-size:.66rem;font-weight:700;color:var(--muted)}
-  .sc-cta{margin-top:14px;background:var(--accent);color:#fff;text-align:center;padding:11px;border-radius:14px;font-size:.72rem;font-weight:700}
+  .chip.star{color:var(--accent)}
+  .sc-tabs{display:flex;gap:4px;background:color-mix(in srgb,var(--muted) 12%,transparent);
+    border-radius:999px;padding:3px;margin-bottom:12px}
+  .sc-tabs span{flex:1;text-align:center;font-size:.64rem;font-weight:600;color:var(--muted);padding:6px 0;border-radius:999px}
+  .sc-tabs span.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(40,28,16,.12)}
+  .ing{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+  .ing:first-of-type{border-top:0}
+  .ing .nm{font-size:.76rem;font-weight:500;color:var(--ink)}
+  .ing .qt{font-size:.72rem;font-weight:700;color:var(--accent-ink);
+    background:color-mix(in srgb,var(--accent-soft) 16%,var(--surface));border-radius:8px;padding:2px 8px}
+  .sc-bar{display:flex;align-items:center;gap:8px;margin-top:12px}
+  .sc-ic{width:38px;height:38px;border-radius:12px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+    background:color-mix(in srgb,var(--accent-soft) 18%,var(--surface));border:1px solid var(--line);color:var(--accent)}
+  .sc-ic svg{width:16px;height:16px}
+  .sc-go{flex:1;background:var(--accent);color:#fff;text-align:center;padding:11px;border-radius:14px;
+    font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px}
+  .sc-go svg{width:14px;height:14px}
 
   section.block{padding:76px 0}
   .head{text-align:center;max-width:640px;margin:0 auto 52px}
@@ -108,23 +120,20 @@
   .feat .ic{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;
     background:color-mix(in srgb,var(--accent-soft) 20%,var(--surface));color:var(--accent);margin-bottom:16px}
   .feat .ic svg{width:22px;height:22px}
-  .feat h3{font-size:1.16rem;margin-bottom:8px}
+  .feat h3{font-size:1.16rem;margin-bottom:8px;letter-spacing:-.01em}
   .feat p{color:var(--muted);font-size:.96rem}
 
-  .band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface-2)}
-  .band .wrap{padding:34px 24px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center}
-  .band p{color:var(--muted);font-size:.98rem}
-  .band strong{color:var(--ink)}
-  .band a{color:var(--accent);font-weight:600}
-
-  footer{padding:60px 0 44px}
-  .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:40px}
+  footer{padding:60px 0 30px;border-top:1px solid var(--line);margin-top:20px}
+  .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:36px}
   .f-brand .brand{margin-bottom:12px}
   .f-brand p{color:var(--muted);font-size:.94rem;max-width:34ch}
   .f-col h5{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:700}
   .f-col a{display:block;color:var(--ink);font-size:.95rem;margin-bottom:10px;font-weight:500}
   .f-col a:hover{color:var(--accent)}
-  .f-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.86rem}
+  .f-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.86rem}
+  .f-mini{margin-top:14px;text-align:center;font-size:.72rem;color:var(--muted);opacity:.6}
+  .f-mini a{text-decoration:underline;text-underline-offset:2px}
+  .f-mini a:hover{color:var(--accent)}
 
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
@@ -169,7 +178,7 @@
       <div class="reveal">
         <p class="eyebrow" data-i18n="hero.eyebrow">App Android · Cuisine + IA</p>
         <h1 data-i18n-html="hero.title">Cuisine mieux,<br>sans te compliquer la vie.</h1>
-        <p class="lead" data-i18n="hero.lead">Savoria importe et structure tes recettes, les adapte à ton équipement, te guide pas à pas en cuisine et gère tes courses. Un vrai chef IA dans ta poche.</p>
+        <p class="lead" data-i18n="hero.lead">Le Chef IA importe et structure tes recettes, les adapte à ton four et ta plaque, te guide pas à pas et gère tes courses. Ton assistant culinaire, dans ta poche.</p>
         <div class="cta">
           <div class="badges">
             <a class="store" href="#" aria-label="Google Play">
@@ -190,18 +199,29 @@
           <div class="screen">
             <div class="sc-hero">
               <div class="plate"></div>
+              <span class="sc-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>
               <div class="sc-title"><h4 data-i18n="phone.title">Bœuf aux carottes</h4></div>
             </div>
             <div class="sc-body">
               <div class="chips">
                 <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M12 2h0"/></svg>1 h 45</span>
                 <span class="chip" data-i18n="phone.serv">4 pers.</span>
-                <span class="chip">★★☆</span>
+                <span class="chip star">★★☆</span>
               </div>
-              <div class="row"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span><span class="ln"></span><span class="q">600 g</span></div>
-              <div class="row"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span><span class="ln s"></span><span class="q">4</span></div>
-              <div class="row"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span><span class="ln"></span><span class="q">2 c.</span></div>
-              <div class="sc-cta" data-i18n="phone.cook">Cuisiner</div>
+              <div class="sc-tabs">
+                <span class="on" data-i18n="phone.tab1">Ingrédients</span>
+                <span data-i18n="phone.tab2">Étapes</span>
+                <span data-i18n="phone.tab3">Notes</span>
+              </div>
+              <div class="ing"><span class="nm" data-i18n="phone.i1">Bœuf à braiser</span><span class="qt">600 g</span></div>
+              <div class="ing"><span class="nm" data-i18n="phone.i2">Carottes</span><span class="qt">4</span></div>
+              <div class="ing"><span class="nm" data-i18n="phone.i3">Oignon</span><span class="qt">1</span></div>
+              <div class="ing"><span class="nm" data-i18n="phone.i4">Bouillon de légumes</span><span class="qt">25 cl</span></div>
+              <div class="sc-bar">
+                <span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L5 3H2"/><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/></svg></span>
+                <span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.4 3.6L17 8l-3.6 1.4L12 13l-1.4-3.6L7 8l3.6-1.4L12 3z"/></svg></span>
+                <span class="sc-go" data-i18n="phone.cook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8V4z"/></svg>Cuisiner</span>
+              </div>
             </div>
           </div>
         </div>
@@ -220,7 +240,7 @@
         <div class="feat reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 21V5a2 2 0 0 1 2-2h8l4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M12 11v6m-3-3l3 3 3-3"/></svg></div>
           <h3 data-i18n="f1.t">Import intelligent</h3>
-          <p data-i18n="f1.p">URL, texte, photos, PDF, Instagram, TikTok, YouTube — l'IA structure la recette pour toi.</p>
+          <p data-i18n="f1.p">URL, texte, photos, PDF, Instagram, TikTok, YouTube — le Chef IA structure la recette pour toi.</p>
         </div>
         <div class="feat reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.4 3.6L17 8l-3.6 1.4L12 13l-1.4-3.6L7 8l3.6-1.4L12 3z"/><path d="M18 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2z"/></svg></div>
@@ -250,12 +270,6 @@
       </div>
     </div>
   </section>
-
-  <div class="band reveal">
-    <div class="wrap">
-      <p data-i18n-html="band">Édité par <strong>JEYLAB</strong> (SARL, RCS Paris 943&nbsp;632&nbsp;588) — <a href="mentions-legales.html">Mentions légales</a></p>
-    </div>
-  </div>
 </main>
 
 <footer>
@@ -278,9 +292,10 @@
       </div>
     </div>
     <div class="f-bottom">
-      <span data-i18n="f.copy">© 2026 JEYLAB (SARL) — Savoria. Tous droits réservés.</span>
+      <span data-i18n="f.copy">© 2026 Savoria</span>
       <span data-i18n="f.made">Fait avec soin en France.</span>
     </div>
+    <p class="f-mini" data-i18n-html="f.editor">Édité par JEYLAB (SARL) · <a href="mentions-legales.html">Mentions légales</a></p>
   </div>
 </footer>
 
@@ -290,17 +305,24 @@
       "nav.soon":"Coming soon",
       "hero.eyebrow":"Android app · Cooking + AI",
       "hero.title":"Cook better,<br>without the hassle.",
-      "hero.lead":"Savoria imports and structures your recipes, adapts them to your equipment, guides you step by step and manages your shopping list. A real AI chef in your pocket.",
+      "hero.lead":"The AI Chef imports and structures your recipes, adapts them to your oven and stovetop, guides you step by step and manages your shopping list. Your cooking assistant, in your pocket.",
       "badge.soon":"Coming soon on",
       "hero.cta":"See the features →",
       "phone.title":"Beef with carrots",
       "phone.serv":"4 servings",
+      "phone.tab1":"Ingredients",
+      "phone.tab2":"Steps",
+      "phone.tab3":"Notes",
+      "phone.i1":"Braising beef",
+      "phone.i2":"Carrots",
+      "phone.i3":"Onion",
+      "phone.i4":"Vegetable stock",
       "phone.cook":"Cook",
       "feat.eyebrow":"Everything you need",
       "feat.title":"One app, from fridge to plate.",
       "feat.sub":"Every step of cooking, assisted by AI — designed to save you time without sacrificing taste.",
       "f1.t":"Smart import",
-      "f1.p":"URL, text, photos, PDF, Instagram, TikTok, YouTube — AI structures the recipe for you.",
+      "f1.p":"URL, text, photos, PDF, Instagram, TikTok, YouTube — the AI Chef structures the recipe for you.",
       "f2.t":"AI Chef",
       "f2.p":"Ideas, adaptations and advice, tuned to your oven, stovetop and equipment.",
       "f3.t":"Cooking mode",
@@ -311,12 +333,12 @@
       "f5.p":"Your notebook of culinary gems: the right producer, the right grocer, found in an instant.",
       "f6.t":"Sharing",
       "f6.p":"Recipes, shopping lists and addresses shared in real time with the people you choose.",
-      "band":'Published by <strong>JEYLAB</strong> (SARL, RCS Paris 943&nbsp;632&nbsp;588) — <a href="legal-notice.html">Legal notice</a>',
       "col.legal":'<h5>Legal</h5><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="legal-notice.html">Legal Notice</a>',
       "col.help":'<h5>Account &amp; help</h5><a href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">Delete my account</a><a href="mailto:savoriaapp@gmail.com">Contact us</a>',
       "f.tagline":"Your personal AI-powered recipe companion. Coming soon on Google Play.",
-      "f.copy":"© 2026 JEYLAB (SARL) — Savoria. All rights reserved.",
-      "f.made":"Crafted with care in France."
+      "f.copy":"© 2026 Savoria",
+      "f.made":"Crafted with care in France.",
+      "f.editor":'Published by JEYLAB (SARL) · <a href="legal-notice.html">Legal notice</a>'
     }
   };
   const nodes = [...document.querySelectorAll('[data-i18n],[data-i18n-html]')];
