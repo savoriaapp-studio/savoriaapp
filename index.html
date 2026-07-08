@@ -1,61 +1,349 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Savoria — AI-Powered Recipe App</title>
+<meta name="description" content="Savoria — l'app de recettes boostée à l'IA. Importe, structure et adapte tes recettes, cuisine pas à pas et gère tes courses. Bientôt sur Google Play.">
+<title>Savoria — l'app de recettes boostée à l'IA</title>
 <style>
-  :root { --bg: #faf7f2; --card: #ffffff; --text: #2d2a26; --muted: #6b655c; --accent: #8a5a2b; }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
-  h1 { font-size: 2.2rem; margin-bottom: 8px; }
-  .tagline { color: var(--muted); font-size: 1.1rem; margin-bottom: 32px; }
-  .card { background: var(--card); border-radius: 16px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-  .card h2 { font-size: 1.15rem; margin-bottom: 10px; color: var(--accent); }
-  ul { padding-left: 20px; }
-  li { margin-bottom: 6px; }
-  a { color: var(--accent); font-weight: 600; }
-  .btn { display: inline-block; background: var(--accent); color: #fff; padding: 12px 22px; border-radius: 999px; text-decoration: none; font-weight: 600; margin-top: 8px; }
-  footer { margin-top: 40px; color: var(--muted); font-size: 0.85rem; }
+  :root{
+    --bg:#f6f1e9; --surface:#ffffff; --surface-2:#fbf7f0;
+    --ink:#241f1a; --muted:#7c7268; --line:rgba(40,28,16,.10);
+    --accent:#b0602c; --accent-soft:#c98a3a; --accent-ink:#844421;
+    --shadow:0 1px 2px rgba(40,28,16,.05), 0 18px 40px -20px rgba(120,66,28,.28);
+    --shadow-lift:0 1px 2px rgba(40,28,16,.06), 0 28px 56px -22px rgba(120,66,28,.40);
+    --r:22px; --maxw:1080px;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,ui-serif,serif;
+    --sans:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#141009; --surface:#1e1810; --surface-2:#241d13;
+      --ink:#f3ede2; --muted:#ab9f8f; --line:rgba(255,240,220,.10);
+      --accent:#e0904d; --accent-soft:#eaa960; --accent-ink:#f0b877;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 22px 46px -22px rgba(0,0,0,.7);
+      --shadow-lift:0 1px 2px rgba(0,0,0,.5), 0 30px 60px -22px rgba(0,0,0,.8);
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1.1}
+
+  header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.4) blur(12px);
+    background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid transparent;transition:border-color .3s}
+  header.scrolled{border-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:1.34rem;font-weight:600}
+  .brand svg{width:22px;height:22px;color:var(--accent)}
+  .nav-right{display:flex;align-items:center;gap:18px;font-size:.9rem}
+  .lang{color:var(--muted);font-weight:600;cursor:pointer;background:none;border:0;font-family:inherit;font-size:.9rem}
+  .lang:hover{color:var(--ink)}
+  .badge-play{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);
+    padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:var(--shadow);transition:transform .2s}
+  .badge-play:hover{transform:translateY(-1px)}
+  .badge-play svg{width:15px;height:15px}
+
+  .hero{position:relative;padding:78px 0 40px}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-1;
+    background:
+      radial-gradient(60% 55% at 18% 12%,color-mix(in srgb,var(--accent-soft) 26%,transparent),transparent 70%),
+      radial-gradient(50% 50% at 92% 30%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 70%)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(2.4rem,5.2vw,3.7rem);margin-bottom:20px}
+  .hero p.lead{font-size:1.16rem;color:var(--muted);max-width:33ch;margin-bottom:30px}
+  .cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .btn-ghost{color:var(--accent-ink);font-weight:600;display:inline-flex;align-items:center;gap:6px}
+  .btn-ghost:hover{gap:10px}
+  .badges{display:flex;gap:12px;flex-wrap:wrap}
+  .store{display:inline-flex;align-items:center;gap:11px;background:#1b1712;color:#fff;
+    border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:9px 17px 9px 14px;
+    box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+  .store:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift)}
+  .store>svg{width:23px;height:23px;flex:0 0 auto}
+  .store .lbl{display:flex;flex-direction:column;line-height:1.12;text-align:left}
+  .store .lbl small{font-size:.58rem;letter-spacing:.05em;opacity:.82;text-transform:uppercase}
+  .store .lbl b{font-size:1.02rem;font-weight:600;font-family:var(--sans)}
+  .store.soon{opacity:.58}
+
+  .phone-stage{display:flex;justify-content:center;position:relative}
+  .phone-stage::before{content:"";position:absolute;width:78%;height:78%;top:11%;
+    background:radial-gradient(circle,color-mix(in srgb,var(--accent-soft) 42%,transparent),transparent 68%);filter:blur(18px);z-index:-1}
+  .phone{width:268px;background:var(--ink);border-radius:40px;padding:11px;box-shadow:var(--shadow-lift);
+    border:1px solid color-mix(in srgb,var(--ink) 60%,#000)}
+  .screen{background:var(--surface);border-radius:30px;overflow:hidden;position:relative}
+  .sc-hero{height:150px;position:relative;background:linear-gradient(140deg,var(--accent) 0%,var(--accent-soft) 100%)}
+  .sc-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,12,6,.5),transparent 55%)}
+  .sc-hero .plate{position:absolute;right:-14px;bottom:-14px;width:112px;height:112px;border-radius:50%;
+    background:radial-gradient(circle at 38% 32%,#e9b877,#a75f2c 70%);box-shadow:inset 0 -10px 24px rgba(0,0,0,.25);opacity:.9}
+  .sc-title{position:absolute;left:16px;bottom:14px;right:16px;z-index:2;color:#fff}
+  .sc-title h4{font-family:var(--serif);font-size:1.08rem;font-weight:600;line-height:1.15}
+  .sc-body{padding:14px 16px 18px}
+  .chips{display:flex;gap:7px;margin-bottom:14px}
+  .chip{font-size:.62rem;font-weight:600;color:var(--accent-ink);
+    background:color-mix(in srgb,var(--accent-soft) 20%,var(--surface));border:1px solid var(--line);
+    padding:4px 9px;border-radius:999px;display:inline-flex;align-items:center;gap:4px}
+  .chip svg{width:9px;height:9px}
+  .row{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+  .row .dot{width:20px;height:20px;border-radius:7px;background:color-mix(in srgb,var(--accent-soft) 26%,var(--surface));
+    display:flex;align-items:center;justify-content:center;color:var(--accent);flex:0 0 auto}
+  .row .dot svg{width:11px;height:11px}
+  .row .ln{flex:1;height:8px;border-radius:4px;background:color-mix(in srgb,var(--muted) 22%,transparent)}
+  .row .ln.s{max-width:52%}
+  .row .q{font-size:.66rem;font-weight:700;color:var(--muted)}
+  .sc-cta{margin-top:14px;background:var(--accent);color:#fff;text-align:center;padding:11px;border-radius:14px;font-size:.72rem;font-weight:700}
+
+  section.block{padding:76px 0}
+  .head{text-align:center;max-width:640px;margin:0 auto 52px}
+  .head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:14px}
+  .head p{color:var(--muted);font-size:1.08rem}
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;
+    box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+  .feat:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift)}
+  .feat .ic{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+    background:color-mix(in srgb,var(--accent-soft) 20%,var(--surface));color:var(--accent);margin-bottom:16px}
+  .feat .ic svg{width:22px;height:22px}
+  .feat h3{font-size:1.16rem;margin-bottom:8px}
+  .feat p{color:var(--muted);font-size:.96rem}
+
+  .band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface-2)}
+  .band .wrap{padding:34px 24px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center}
+  .band p{color:var(--muted);font-size:.98rem}
+  .band strong{color:var(--ink)}
+  .band a{color:var(--accent);font-weight:600}
+
+  footer{padding:60px 0 44px}
+  .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:40px}
+  .f-brand .brand{margin-bottom:12px}
+  .f-brand p{color:var(--muted);font-size:.94rem;max-width:34ch}
+  .f-col h5{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:700}
+  .f-col a{display:block;color:var(--ink);font-size:.95rem;margin-bottom:10px;font-weight:500}
+  .f-col a:hover{color:var(--accent)}
+  .f-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.86rem}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:36px;text-align:center}
+    .hero p.lead{margin-left:auto;margin-right:auto}
+    .cta{justify-content:center}
+    .features{grid-template-columns:1fr 1fr}
+    .f-grid{grid-template-columns:1fr;gap:28px}
+  }
+  @media (max-width:560px){
+    .features{grid-template-columns:1fr}
+    .nav-right .badge-play{display:none}
+    .hero{padding-top:52px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{transition:none;opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <h1>🍳 Savoria</h1>
-  <p class="tagline">Your AI-powered personal recipe companion for Android.</p>
 
-  <div class="card">
-    <h2>What is Savoria?</h2>
-    <p>Savoria helps you collect, organize and cook your recipes with the help of AI:</p>
-    <ul>
-      <li>Import recipes from any URL, plain text, photos or PDFs — automatically structured by AI</li>
-      <li>Chat with an AI chef for ideas, adaptations and cooking advice tailored to your kitchen equipment</li>
-      <li>Step-by-step cooking mode with per-step timers, ingredient reminders and a contextual AI assistant</li>
-      <li>Smart shopping list with automatic categorization and duplicate merging</li>
-      <li>A personal address book for your favorite food finds</li>
-      <li>Real-time sharing of recipes, shopping lists and addresses with people you choose</li>
-    </ul>
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="Savoria">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.9L18 8.5l-4.4 1.6L12 15l-1.6-4.9L6 8.5l4.4-1.6L12 2zM19 13l.8 2.4L22 16l-2.2.8L19 19l-.8-2.2L16 16l2.2-.6L19 13zM5 14l.7 2L8 16.7l-2.3.7L5 20l-.7-2.6L2 16.7 4.3 16 5 14z"/></svg>
+      Savoria
+    </a>
+    <nav class="nav-right">
+      <button class="lang" id="langToggle" type="button">English</button>
+      <a class="badge-play" href="#" data-i18n="nav.soon">Bientôt sur Play</a>
+    </nav>
   </div>
+</header>
 
-  <div class="card">
-    <h2>Legal</h2>
-    <p>Read our <a href="privacy.html">Privacy Policy</a> (<a href="privacy-fr.html">FR</a>) to learn what data Savoria stores and how it is used, and our <a href="terms.html">Terms of Use</a> (<a href="terms-fr.html">FR</a>) for the rules that govern the service — including how AI-generated content should be used.</p>
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <p class="eyebrow" data-i18n="hero.eyebrow">App Android · Cuisine + IA</p>
+        <h1 data-i18n-html="hero.title">Cuisine mieux,<br>sans te compliquer la vie.</h1>
+        <p class="lead" data-i18n="hero.lead">Savoria importe et structure tes recettes, les adapte à ton équipement, te guide pas à pas en cuisine et gère tes courses. Un vrai chef IA dans ta poche.</p>
+        <div class="cta">
+          <div class="badges">
+            <a class="store" href="#" aria-label="Google Play">
+              <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M5 3l14 9-14 9V3z"/></svg>
+              <span class="lbl"><small data-i18n="badge.soon">Bientôt sur</small><b>Google Play</b></span>
+            </a>
+            <a class="store soon" href="#" aria-label="App Store">
+              <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.05 12.04c-.02-2.06 1.68-3.05 1.76-3.1-.96-1.4-2.45-1.6-2.98-1.62-1.27-.13-2.48.75-3.12.75-.64 0-1.64-.73-2.7-.71-1.39.02-2.67.81-3.38 2.05-1.44 2.5-.37 6.2 1.03 8.23.69.99 1.5 2.1 2.57 2.06 1.03-.04 1.42-.67 2.67-.67 1.24 0 1.6.67 2.7.65 1.11-.02 1.82-1.01 2.5-2.01.79-1.15 1.11-2.27 1.13-2.33-.02-.01-2.17-.83-2.19-3.29zM14.99 6.28c.56-.68.94-1.63.84-2.58-.81.03-1.79.54-2.37 1.22-.52.6-.98 1.56-.86 2.48.9.07 1.83-.46 2.39-1.12z"/></svg>
+              <span class="lbl"><small data-i18n="badge.soon">Bientôt sur</small><b>App Store</b></span>
+            </a>
+          </div>
+          <a class="btn-ghost" href="#features" data-i18n="hero.cta">Voir les fonctionnalités →</a>
+        </div>
+      </div>
+
+      <div class="phone-stage reveal" aria-hidden="true">
+        <div class="phone">
+          <div class="screen">
+            <div class="sc-hero">
+              <div class="plate"></div>
+              <div class="sc-title"><h4 data-i18n="phone.title">Bœuf aux carottes</h4></div>
+            </div>
+            <div class="sc-body">
+              <div class="chips">
+                <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M12 2h0"/></svg>1 h 45</span>
+                <span class="chip" data-i18n="phone.serv">4 pers.</span>
+                <span class="chip">★★☆</span>
+              </div>
+              <div class="row"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span><span class="ln"></span><span class="q">600 g</span></div>
+              <div class="row"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span><span class="ln s"></span><span class="q">4</span></div>
+              <div class="row"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span><span class="ln"></span><span class="q">2 c.</span></div>
+              <div class="sc-cta" data-i18n="phone.cook">Cuisiner</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="features">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="eyebrow" data-i18n="feat.eyebrow">Tout ce qu'il faut</p>
+        <h2 data-i18n="feat.title">Une app, du frigo à l'assiette.</h2>
+        <p data-i18n="feat.sub">Chaque étape de la cuisine, assistée par l'IA — pensée pour te faire gagner du temps sans rien sacrifier au goût.</p>
+      </div>
+      <div class="features">
+        <div class="feat reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 21V5a2 2 0 0 1 2-2h8l4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M12 11v6m-3-3l3 3 3-3"/></svg></div>
+          <h3 data-i18n="f1.t">Import intelligent</h3>
+          <p data-i18n="f1.p">URL, texte, photos, PDF, Instagram, TikTok, YouTube — l'IA structure la recette pour toi.</p>
+        </div>
+        <div class="feat reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.4 3.6L17 8l-3.6 1.4L12 13l-1.4-3.6L7 8l3.6-1.4L12 3z"/><path d="M18 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2z"/></svg></div>
+          <h3 data-i18n="f2.t">Chef IA</h3>
+          <p data-i18n="f2.p">Des idées, des adaptations et des conseils, ajustés à ton four, ta plaque et ton matériel.</p>
+        </div>
+        <div class="feat reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></div>
+          <h3 data-i18n="f3.t">Mode cuisine</h3>
+          <p data-i18n="f3.p">Pas à pas, minuteurs par étape, rappel des ingrédients et un assistant qui connaît ta recette.</p>
+        </div>
+        <div class="feat reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L5 3H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg></div>
+          <h3 data-i18n="f4.t">Liste de courses</h3>
+          <p data-i18n="f4.p">Ajoute en langage libre : catégorisation automatique par rayon et fusion des doublons.</p>
+        </div>
+        <div class="feat reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <h3 data-i18n="f5.t">Bonnes adresses</h3>
+          <p data-i18n="f5.p">Ton carnet de pépites culinaires : le bon producteur, la bonne épicerie, retrouvés en un instant.</p>
+        </div>
+        <div class="feat reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg></div>
+          <h3 data-i18n="f6.t">Partage</h3>
+          <p data-i18n="f6.p">Recettes, courses et adresses partagées en temps réel avec les personnes de ton choix.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="band reveal">
+    <div class="wrap">
+      <p data-i18n-html="band">Édité par <strong>JEYLAB</strong> (SARL, RCS Paris 943&nbsp;632&nbsp;588) — <a href="mentions-legales.html">Mentions légales</a></p>
+    </div>
   </div>
+</main>
 
-  <div class="card">
-    <h2>Delete your account</h2>
-    <p>You can delete your account and all associated data at any time, directly in the app (Settings → Account → Delete my account) or by submitting a request online:</p>
-    <a class="btn" href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">Request account deletion</a>
-    <p style="margin-top:12px; color: var(--muted); font-size: 0.9rem;">Requests are processed within 30 days. See the <a href="privacy.html#deletion">Privacy Policy</a> for details on what is deleted.</p>
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <div class="brand"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.9L18 8.5l-4.4 1.6L12 15l-1.6-4.9L6 8.5l4.4-1.6L12 2z"/></svg> Savoria</div>
+        <p data-i18n="f.tagline">Ton assistant de recettes personnel, boosté à l'IA. Bientôt disponible sur Google Play.</p>
+      </div>
+      <div class="f-col" data-i18n-html="col.legal">
+        <h5>Légal</h5>
+        <a href="privacy-fr.html">Confidentialité</a>
+        <a href="terms-fr.html">Conditions d'utilisation</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+      </div>
+      <div class="f-col" data-i18n-html="col.help">
+        <h5>Compte & aide</h5>
+        <a href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">Supprimer mon compte</a>
+        <a href="mailto:savoriaapp@gmail.com">Nous contacter</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span data-i18n="f.copy">© 2026 JEYLAB (SARL) — Savoria. Tous droits réservés.</span>
+      <span data-i18n="f.made">Fait avec soin en France.</span>
+    </div>
   </div>
+</footer>
 
-  <div class="card">
-    <h2>Contact</h2>
-    <p>Questions or feedback? Reach us at <a href="mailto:savoriaapp@gmail.com">savoriaapp@gmail.com</a>.</p>
-  </div>
+<script>
+  const I18N = {
+    en: {
+      "nav.soon":"Coming soon",
+      "hero.eyebrow":"Android app · Cooking + AI",
+      "hero.title":"Cook better,<br>without the hassle.",
+      "hero.lead":"Savoria imports and structures your recipes, adapts them to your equipment, guides you step by step and manages your shopping list. A real AI chef in your pocket.",
+      "badge.soon":"Coming soon on",
+      "hero.cta":"See the features →",
+      "phone.title":"Beef with carrots",
+      "phone.serv":"4 servings",
+      "phone.cook":"Cook",
+      "feat.eyebrow":"Everything you need",
+      "feat.title":"One app, from fridge to plate.",
+      "feat.sub":"Every step of cooking, assisted by AI — designed to save you time without sacrificing taste.",
+      "f1.t":"Smart import",
+      "f1.p":"URL, text, photos, PDF, Instagram, TikTok, YouTube — AI structures the recipe for you.",
+      "f2.t":"AI Chef",
+      "f2.p":"Ideas, adaptations and advice, tuned to your oven, stovetop and equipment.",
+      "f3.t":"Cooking mode",
+      "f3.p":"Step by step, per-step timers, ingredient reminders and an assistant that knows your recipe.",
+      "f4.t":"Shopping list",
+      "f4.p":"Add in plain language: automatic aisle sorting and duplicate merging.",
+      "f5.t":"Food finds",
+      "f5.p":"Your notebook of culinary gems: the right producer, the right grocer, found in an instant.",
+      "f6.t":"Sharing",
+      "f6.p":"Recipes, shopping lists and addresses shared in real time with the people you choose.",
+      "band":'Published by <strong>JEYLAB</strong> (SARL, RCS Paris 943&nbsp;632&nbsp;588) — <a href="legal-notice.html">Legal notice</a>',
+      "col.legal":'<h5>Legal</h5><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="legal-notice.html">Legal Notice</a>',
+      "col.help":'<h5>Account &amp; help</h5><a href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">Delete my account</a><a href="mailto:savoriaapp@gmail.com">Contact us</a>',
+      "f.tagline":"Your personal AI-powered recipe companion. Coming soon on Google Play.",
+      "f.copy":"© 2026 JEYLAB (SARL) — Savoria. All rights reserved.",
+      "f.made":"Crafted with care in France."
+    }
+  };
+  const nodes = [...document.querySelectorAll('[data-i18n],[data-i18n-html]')];
+  nodes.forEach(el => { el._html = el.hasAttribute('data-i18n-html'); el._src = el._html ? el.innerHTML : el.textContent; });
+  function setLang(lang){
+    const d = I18N[lang] || {};
+    document.documentElement.lang = lang;
+    nodes.forEach(el => {
+      const key = el.getAttribute(el._html ? 'data-i18n-html' : 'data-i18n');
+      const val = (lang === 'fr') ? el._src : (d[key] != null ? d[key] : el._src);
+      if (el._html) el.innerHTML = val; else el.textContent = val;
+    });
+    document.getElementById('langToggle').textContent = (lang === 'fr') ? 'English' : 'Français';
+    try { localStorage.setItem('savoria_lang', lang); } catch(e) {}
+  }
+  const saved = (() => { try { return localStorage.getItem('savoria_lang'); } catch(e) { return null; } })();
+  const param = new URLSearchParams(location.search).get('lang');
+  const browser = (navigator.language || 'fr').toLowerCase().startsWith('en') ? 'en' : 'fr';
+  setLang(saved || param || browser);
+  document.getElementById('langToggle').addEventListener('click', () => {
+    setLang(document.documentElement.lang === 'fr' ? 'en' : 'fr');
+  });
 
-  <footer>© 2026 Savoria. All rights reserved.</footer>
-</div>
+  const hdr = document.getElementById('hdr');
+  const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll(); addEventListener('scroll', onScroll, { passive:true });
+  const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold:.12 });
+  document.querySelectorAll('.reveal').forEach((el,i) => { el.style.transitionDelay = (Math.min(i,6)*60)+'ms'; io.observe(el); });
+</script>
 </body>
 </html>
