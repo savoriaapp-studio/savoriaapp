@@ -1,0 +1,22 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.savoria.app",
+      "sha256_cert_fingerprints": [
+        "53:9C:B2:C5:B2:8B:6E:1E:44:8F:14:32:ED:BF:57:13:47:B3:54:73:87:38:83:E4:39:E9:BC:9D:9C:31:5A:4B"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.savoria.app.dev",
+      "sha256_cert_fingerprints": [
+        "53:9C:B2:C5:B2:8B:6E:1E:44:8F:14:32:ED:BF:57:13:47:B3:54:73:87:38:83:E4:39:E9:BC:9D:9C:31:5A:4B"
+      ]
+    }
+  }
+]
