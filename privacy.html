@@ -64,7 +64,7 @@
     <tr>
       <td>Contenu public d'une publication de réseau social (légende ou description, et le cas échéant la vidéo, d'un lien Instagram, TikTok ou YouTube que vous soumettez)</td>
       <td>Quand vous importez une recette depuis un lien de réseau social</td>
-      <td>Récupération de la surface <strong>publiquement accessible</strong> de la publication — sans connexion à aucun compte de réseau social — puis transmission à l'API Gemini pour en extraire la recette. Une éventuelle vidéo transite temporairement par notre serveur et est <strong>supprimée immédiatement après l'analyse</strong> : aucun contenu de plateforme n'est conservé, seule la recette structurée qui en résulte est enregistrée dans votre compte.</td>
+      <td>Récupération du contenu de la publication (légende et, le cas échéant, vidéo) par un <strong>service côté serveur</strong> s'appuyant sur un outil open-source, <strong>sans connexion à aucun compte de réseau social</strong>, puis transmission à l'API Gemini pour en extraire la recette. Une éventuelle vidéo transite temporairement par notre serveur et est <strong>supprimée immédiatement après l'analyse</strong> : aucun contenu de plateforme n'est conservé, seule la recette structurée qui en résulte est enregistrée dans votre compte.</td>
       <td>Exécution du contrat</td>
     </tr>
     <tr>
@@ -99,7 +99,7 @@
     <li>Pas de publicité, pas de traceurs publicitaires.</li>
     <li>Vos recettes, messages et images ne servent ni au marketing ni au profilage.</li>
     <li>Le service utilise l'offre payante de l'API Gemini : conformément à ses conditions, vos requêtes IA ne sont pas utilisées par Google pour entraîner ses modèles. Google peut toutefois les conserver temporairement à des fins de détection d'abus et de conformité légale.</li>
-    <li>Aucune connexion à vos comptes de réseaux sociaux : l'import depuis Instagram, TikTok ou YouTube n'accède qu'à des contenus publiquement accessibles — l'application ne vous demande jamais d'identifiants de réseau social et ne stocke aucune session.</li>
+    <li>Aucune connexion à vos comptes de réseaux sociaux : l'import depuis Instagram, TikTok ou YouTube s'effectue côté serveur, sans authentification à aucune plateforme — l'application ne vous demande jamais d'identifiants de réseau social et ne stocke aucune session ni aucun cookie de plateforme.</li>
   </ul>
   <p>Évitez d'inclure des informations personnelles sensibles (par exemple des données de santé) dans les messages envoyés à l'IA — elles ne sont pas nécessaires pour des conseils de cuisine.</p>
 
@@ -192,7 +192,7 @@
     <tr>
       <td>Public content of a social media post (caption or description, and where applicable the video, of an Instagram, TikTok or YouTube link you submit)</td>
       <td>When you import a recipe from a social media link</td>
-      <td>The <strong>publicly accessible</strong> surface of the post is fetched — without signing in to any social media account — and sent to the Gemini API to extract the recipe. Any video transits temporarily through our server and is <strong>deleted immediately after analysis</strong>: no platform content is retained; only the resulting structured recipe is saved to your account.</td>
+      <td>The post's content (caption and, where applicable, video) is fetched by a <strong>server-side service</strong> relying on an open-source tool, <strong>without signing in to any social media account</strong>, and sent to the Gemini API to extract the recipe. Any video transits temporarily through our server and is <strong>deleted immediately after analysis</strong>: no platform content is retained; only the resulting structured recipe is saved to your account.</td>
       <td>Performance of the contract</td>
     </tr>
     <tr>
@@ -227,7 +227,7 @@
     <li>We do not show ads and do not use advertising trackers.</li>
     <li>We do not use your recipes, messages or images for marketing or profiling.</li>
     <li>The service uses the paid tier of the Gemini API: under its terms, your AI prompts are not used by Google to train its models. Google may however retain them temporarily for abuse detection and legal compliance purposes.</li>
-    <li>No connection to your social media accounts: importing from Instagram, TikTok or YouTube only accesses publicly available content — the app never asks for social media credentials and stores no social session.</li>
+    <li>No connection to your social media accounts: importing from Instagram, TikTok or YouTube is performed server-side, without authenticating to any platform — the app never asks for social media credentials and stores no session or platform cookie.</li>
   </ul>
   <p>Please avoid including sensitive personal information (e.g. health details) in messages sent to the AI — it is not needed for cooking advice.</p>
 
