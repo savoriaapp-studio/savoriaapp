@@ -22,6 +22,6 @@
 
 - Site officiel : https://savoria.jeylab.fr/
 - Google Play : https://play.google.com/store/apps/details?id=com.savoria.app
-- Politique de confidentialité : https://savoria.jeylab.fr/privacy.html
-- Conditions d'utilisation : https://savoria.jeylab.fr/terms.html
+- Politique de confidentialité : https://savoria.jeylab.fr/privacy/
+- Conditions d'utilisation : https://savoria.jeylab.fr/terms/
 - Contact : savoriaapp@gmail.com

@@ -1,27 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://savoria.jeylab.fr/</loc>
-    <lastmod>2026-07-13</lastmod>
+    <loc>https://savoria.jeylab.fr/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savoria.jeylab.fr/fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savoria.jeylab.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savoria.jeylab.fr/fr/"/>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://savoria.jeylab.fr/privacy.html</loc>
-    <lastmod>2026-07-13</lastmod>
+    <loc>https://savoria.jeylab.fr/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savoria.jeylab.fr/fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savoria.jeylab.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savoria.jeylab.fr/fr/"/>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://savoria.jeylab.fr/fr/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savoria.jeylab.fr/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savoria.jeylab.fr/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savoria.jeylab.fr/fr/privacy/"/>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://savoria.jeylab.fr/terms.html</loc>
-    <lastmod>2026-07-13</lastmod>
+    <loc>https://savoria.jeylab.fr/en/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savoria.jeylab.fr/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savoria.jeylab.fr/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savoria.jeylab.fr/fr/privacy/"/>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://savoria.jeylab.fr/mentions-legales.html</loc>
-    <lastmod>2026-07-13</lastmod>
+    <loc>https://savoria.jeylab.fr/fr/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savoria.jeylab.fr/fr/terms/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savoria.jeylab.fr/en/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savoria.jeylab.fr/fr/terms/"/>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://savoria.jeylab.fr/en/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savoria.jeylab.fr/fr/terms/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savoria.jeylab.fr/en/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savoria.jeylab.fr/fr/terms/"/>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://savoria.jeylab.fr/fr/legal-notice/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savoria.jeylab.fr/fr/legal-notice/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savoria.jeylab.fr/en/legal-notice/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savoria.jeylab.fr/fr/legal-notice/"/>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://savoria.jeylab.fr/en/legal-notice/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savoria.jeylab.fr/fr/legal-notice/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savoria.jeylab.fr/en/legal-notice/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savoria.jeylab.fr/fr/legal-notice/"/>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
