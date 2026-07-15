@@ -21,9 +21,16 @@
   p, li { margin-bottom: 8px; }
   ul { padding-left: 20px; margin-bottom: 12px; }
   a { color: var(--accent); font-weight: 600; }
-  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.95rem; }
+  /* Tables larges : défilent dans leur propre conteneur, le corps de page ne scrolle jamais en X. */
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 620px; margin: 0; font-size: 0.95rem; }
   th, td { border: 1px solid #e2ddd4; padding: 8px 12px; text-align: left; vertical-align: top; }
   th { background: #f1ece3; }
+  @media (max-width: 600px) {
+    .wrap { padding: 32px 16px; }
+    table { font-size: 0.86rem; }
+    th, td { padding: 7px 9px; }
+  }
   .langbtn { float: right; margin-top: 4px; font: inherit; font-size: .85rem; font-weight: 600;
     color: var(--accent); background: #fff; border: 1px solid #e2ddd4; border-radius: 999px;
     padding: 6px 14px; cursor: pointer; }
@@ -40,6 +47,7 @@
   <p>Cette politique explique quelles données <strong>Savoria</strong> (« l'application », « nous ») collecte, pourquoi, sur quelle base légale, combien de temps elles sont conservées, et comment exercer vos droits. Savoria est une application Android de recettes assistée par IA, éditée par la société <strong>JEYLAB</strong> (SARL, RCS Paris 943 632 588, siège : 6 rue Émile Dubois, 75014 Paris), responsable de traitement au sens du RGPD (contact ci-dessous, informations complètes dans les <a href="/fr/legal-notice/">mentions légales</a>).</p>
 
   <h2>1. Données collectées et finalités</h2>
+  <figure class="table-wrap">
   <table>
     <tr><th>Données</th><th>Quand</th><th>Finalité</th><th>Base légale (art. 6 RGPD)</th></tr>
     <tr>
@@ -97,6 +105,7 @@
       <td>Obligation légale (art. 7.1 RGPD)</td>
     </tr>
   </table>
+  </figure>
 
   <h2>2. Ce que nous ne faisons PAS</h2>
   <ul>

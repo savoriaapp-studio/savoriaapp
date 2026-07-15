@@ -21,9 +21,16 @@
   p, li { margin-bottom: 8px; }
   ul { padding-left: 20px; margin-bottom: 12px; }
   a { color: var(--accent); font-weight: 600; }
-  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.95rem; }
+  /* Tables larges : défilent dans leur propre conteneur, le corps de page ne scrolle jamais en X. */
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 620px; margin: 0; font-size: 0.95rem; }
   th, td { border: 1px solid #e2ddd4; padding: 8px 12px; text-align: left; vertical-align: top; }
   th { background: #f1ece3; }
+  @media (max-width: 600px) {
+    .wrap { padding: 32px 16px; }
+    table { font-size: 0.86rem; }
+    th, td { padding: 7px 9px; }
+  }
   .langbtn { float: right; margin-top: 4px; font: inherit; font-size: .85rem; font-weight: 600;
     color: var(--accent); background: #fff; border: 1px solid #e2ddd4; border-radius: 999px;
     padding: 6px 14px; cursor: pointer; }
@@ -40,6 +47,7 @@
   <p>This Privacy Policy explains what data <strong>Savoria</strong> ("the app", "we") collects, why, on what legal basis, how long it is kept, and how you can exercise your rights. Savoria is an AI-powered recipe app for Android, published by <strong>JEYLAB</strong> (a French SARL, Paris Trade Register 943 632 588, registered office: 6 rue Émile Dubois, 75014 Paris), the "data controller" within the meaning of the GDPR (contact below, full details in the <a href="/en/legal-notice/">legal notice</a>).</p>
 
   <h2>1. Data we collect and why</h2>
+  <figure class="table-wrap">
   <table>
     <tr><th>Data</th><th>When</th><th>Purpose</th><th>Legal basis (GDPR art. 6)</th></tr>
     <tr>
@@ -97,6 +105,7 @@
       <td>Legal obligation (GDPR art. 7.1)</td>
     </tr>
   </table>
+  </figure>
 
   <h2>2. What we do NOT do</h2>
   <ul>
