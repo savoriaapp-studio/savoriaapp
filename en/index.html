@@ -208,10 +208,11 @@
   .badge-store{position:relative;display:inline-flex;transition:transform .2s}
   .badge-store.live:hover{transform:translateY(-2px)}
   .badge-store.soon{opacity:.5;pointer-events:none}
-  /* Badges : les PNG Google Play (gplay-fr/en) ont été DÉTOURÉS de leur marge transparente
-     (boîte = pleine image, comme les SVG App Store) → hauteur CSS égale = boîtes alignées.
-     ⚠️ Ne pas remettre des PNG Google Play officiels non détourés (ils ont ~20 % de marge
-     bakée et casseraient l'alignement) ni des hauteurs différentes. */
+  /* Badges : SVG officiels Google Play (gplay-fr/en.svg) + App Store (appstore-fr/en.svg).
+     Les SVG Google Play « Web_color » remplissent exactement leur viewBox (0 marge, ratio 3.37) →
+     à hauteur CSS égale les deux boîtes s'alignent, sans détourage. ⚠️ Garder du SVG (net + pas
+     de marge transparente bakée) ; ne pas revenir aux PNG Google Play officiels (marge ~20 % qui
+     casse l'alignement). */
   .badge-gplay img{height:50px;width:auto;display:block}
   .badge-apple img{height:50px;width:auto;display:block}
   .soon-tag{position:absolute;top:-7px;right:-7px;background:var(--accent);color:#fff;font-size:.56rem;
@@ -361,7 +362,7 @@
         <div class="cta">
           <div class="badges">
             <a class="badge-store badge-gplay live" href="https://play.google.com/store/apps/details?id=com.savoria.app" target="_blank" rel="noopener">
-              <img src="/badges/gplay-en.png" data-i18n-src="/badge.gplaySrc" data-i18n-alt="badge.gplayAlt" alt="Get it on Google Play" width="646" height="250">
+              <img src="/badges/gplay-en.svg" data-i18n-src="/badge.gplaySrc" data-i18n-alt="badge.gplayAlt" alt="Get it on Google Play" width="239" height="71">
             </a>
             <span class="badge-store badge-apple soon" role="img" aria-label="Application iOS bientôt disponible sur l'App Store">
               <img src="/badges/appstore-en.svg" data-i18n-src="/badge.appstoreSrc" alt="" width="127" height="40">
